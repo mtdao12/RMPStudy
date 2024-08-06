@@ -95,14 +95,14 @@ const init_camera = {
   type: jsPsychInitializeCamera,
 }
 
-// const recorder = jsPsych.pluginAPI.getCameraRecorder();
+const recorder = jsPsych.pluginAPI.getCameraRecorder();
 
-const stream = navigator.mediaDevices.getUserMedia({
-  audio: true,
-  video: { width: 1280, height: 720 }, // request a certain resolution
-});
+// const stream = navigator.mediaDevices.getUserMedia({
+//   audio: true,
+//   video: { width: 1280, height: 720 }, // request a certain resolution
+// });
 
-jsPsych.pluginAPI.initializeCameraRecorder(stream);
+// jsPsych.pluginAPI.initializeCameraRecorder(stream);
 
 // setup a timeline object 
 var timeline = [];
