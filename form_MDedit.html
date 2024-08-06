@@ -81,8 +81,7 @@ navigator.mediaDevices.getUserMedia({ video: true })
     video.srcObject = stream;
   })
   .catch(error => {
-    console.error('Error accessing webcam:   
- ', error);
+    console.error('Error accessing webcam:');
   });
 
 // async function startCamera() {
