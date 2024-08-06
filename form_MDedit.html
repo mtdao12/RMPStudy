@@ -90,12 +90,9 @@ jsPsych.data.addProperties({participant_id: PID});
     
 // };  
 
-// initialize camera
-const init_camera = {
-  type: jsPsychInitializeCamera,
-}
 
-const recorder = jsPsych.pluginAPI.getCameraRecorder();
+
+// const recorder = jsPsych.pluginAPI.getCameraRecorder();
 
 // const stream = navigator.mediaDevices.getUserMedia({
 //   audio: true,
@@ -107,8 +104,13 @@ const recorder = jsPsych.pluginAPI.getCameraRecorder();
 // setup a timeline object 
 var timeline = [];
 
+// initialize camera
+const init_camera = {
+  type: jsPsychInitializeCamera,
+}
 
-
+// push initialize camera into timeline
+timeline.push(init_camera)
 	
 // // show camera feed
 // const mirror_camera = {
