@@ -94,12 +94,20 @@ jsPsych.data.addProperties({participant_id: PID});
 const init_camera = {
   type: jsPsychInitializeCamera,
   include_audio: true,
-  width: 200,
-  height: 125,
 }
+
+// const recorder = jsPsych.pluginAPI.getCameraRecorder();
+
+const stream = await navigator.mediaDevices.getUserMedia({
+  audio: true,
+  video: { width: 1280, height: 720 }, // request a certain resolution
+});
+
+jsPsych.pluginAPI.initializeCameraRecorder(stream);
 
 // setup a timeline object 
 var timeline = [];
+
 
 
 	
