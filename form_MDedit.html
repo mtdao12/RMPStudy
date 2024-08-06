@@ -88,28 +88,27 @@ window.onbeforeunload = function() {
     console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
     jsPsych.data.addProperties({time_spent: timeSpent});
     
-};   
-
-// setup a timeline object 
-var timeline = [];
+};  
 
 // initialize camera
 const init_camera = {
   type: jsPsychInitializeCamera,
   include_audio: true,
-  width: { min: 200, ideal: 300, max: 400 },
-  height: { min: 125, ideal: 169 },
+  width: 200,
+  height: 125,
 }
 
-// push initialize camera into timeline
-timeline.push(init_camera)
+// // setup a timeline object 
+// var timeline = [];
+
+
 	
-// show camera feed
-const mirror_camera = {
-  type: jsPsychMirrorCamera,
-  width: { min: 200, ideal: 300, max: 400 },
-  height: { min: 125, ideal: 169 },
-}
+// // show camera feed
+// const mirror_camera = {
+//   type: jsPsychMirrorCamera,
+//   width: { min: 200, ideal: 300, max: 400 },
+//   height: { min: 125, ideal: 169 },
+// }
 
 // push initialize camera into timeline
 timeline.push(mirror_camera)
