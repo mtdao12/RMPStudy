@@ -73,6 +73,8 @@ jsPsych.data.addProperties({participant_id: PID});
 const video = document.createElement('video');
 video.id = 'myVideo';
 video.autoplay = true;
+video.style.position = 'absolute'; // Adjust position as needed
+video.style.zIndex = 1000; // Ensure video is on top
 document.body.appendChild(video);
 	
 // // Function to start the camera and stream the video
