@@ -95,7 +95,10 @@ var timeline = [];
 
 // initialize camera
 const init_camera = {
-    type: jsPsychInitializeCamera,
+  type: jsPsychInitializeCamera,
+  include_audio: true,
+  width: { min: 200, ideal: 300, max: 400 },
+  height: { min: 125, ideal: 169 },
 }
 
 // push initialize camera into timeline
@@ -103,7 +106,9 @@ timeline.push(init_camera)
 	
 // show camera feed
 const mirror_camera = {
-    type: jsPsychMirrorCamera,
+  type: jsPsychMirrorCamera,
+  width: { min: 200, ideal: 300, max: 400 },
+  height: { min: 125, ideal: 169 },
 }
 
 // push initialize camera into timeline
