@@ -69,23 +69,38 @@ console.log(PID)
 // add PID to data object
 jsPsych.data.addProperties({participant_id: PID});
 
-// Function to start the camera and stream the video
-async function startCamera() {
-    const constraints = {
-        video: {
-            facingMode: 'user', // Use the front camera if available
-            width: { ideal: 200 },
-            height: { ideal: 150 }
-        }
-    };
+// Create a global video element
+const video = document.createElement('video');
+video.id = 'myVideo';
+video.autoplay = true;
+document.body.appendChild(video);
+	
+// // Function to start the camera and stream the video
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => {
+    video.srcObject = stream;
+  })
+  .catch(error => {
+    console.error('Error accessing webcam:   
+ ', error);
+  });
 
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia(constraints);
-        document.querySelector('video').srcObject = stream;
-    } catch (error) {
-        console.error('Error accessing webcam: ', error);
-    }
-}
+// async function startCamera() {
+//     const constraints = {
+//         video: {
+//             facingMode: 'user', // Use the front camera if available
+//             width: { ideal: 200 },
+//             height: { ideal: 150 }
+//         }
+//     };
+
+//     try {
+//         const stream = await navigator.mediaDevices.getUserMedia(constraints);
+//         document.querySelector('video').srcObject = stream;
+//     } catch (error) {
+//         console.error('Error accessing webcam: ', error);
+//     }
+// }
 
 // // capture how much time a user spends on page
 // // records start time when the page loads
@@ -112,16 +127,16 @@ var timeline = [];
 
 // Define the trial that displays the video feed
 const cameraTrial = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: `
-        <div id="video-container">
-            <video autoplay></video>
-            <p>Press any key to continue...</p>
-        </div>
-    `,
-    on_start: function() {
-        startCamera();
-    }
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <div id="video-container">
+      <video id="myVideo"></video>
+      <p>Press any key to continue...</p>
+    </div>
+  `,
+  on_start: function() {
+    // Start the camera (already started in the preamble)
+  }
 };
 
 // push initialize camera into timeline
