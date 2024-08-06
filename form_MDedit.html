@@ -93,12 +93,11 @@ jsPsych.data.addProperties({participant_id: PID});
 // initialize camera
 const init_camera = {
   type: jsPsychInitializeCamera,
-  include_audio: true,
 }
 
 // const recorder = jsPsych.pluginAPI.getCameraRecorder();
 
-const stream = await navigator.mediaDevices.getUserMedia({
+const stream = navigator.mediaDevices.getUserMedia({
   audio: true,
   video: { width: 1280, height: 720 }, // request a certain resolution
 });
