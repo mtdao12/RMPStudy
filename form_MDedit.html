@@ -54,26 +54,6 @@ const jsPsych = initJsPsych({
     var data = jsPsych.data.get().json();
     save_data_to_server(data);
   }
-
-  preamble: function() {
-    // Create a video element
-    const video = document.createElement('video');
-    video.id = 'myVideo';
-    video.autoplay = true;
-
-    // Start the camera (replace with your camera access logic)
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-        video.srcObject = stream;
-      })
-      .catch(error => {
-        console.error('Error accessing   
- camera:', error);
-      });
-
-    // Append the video to the body (adjust as needed)
-    document.body.appendChild(video);
-  }
 });
 
 // get PID from URL parameters
