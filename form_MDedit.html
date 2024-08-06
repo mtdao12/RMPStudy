@@ -45,8 +45,6 @@ Before connecting to the live call, you and your partner will be shown each othe
 <script src="https://unpkg.com/jspsych@7.0.0"></script>
 <link href="https://unpkg.com/jspsych@7.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
 <script src="https://unpkg.com/@jspsych/plugin-survey-html-form@2.0.0"></script>
-<script src="https://unpkg.com/@jspsych/plugin-initialize-camera@2.0.0"></script>
-<script src="https://unpkg.com/@jspsych/plugin-mirror-camera@2.0.0"></script>
 <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
 
 <script>
@@ -127,7 +125,7 @@ const cameraTrial = {
 };
 
 // push initialize camera into timeline
-timeline.push(init_camera)
+timeline.push(cameraTrial)
 	
 // // show camera feed
 // const mirror_camera = {
